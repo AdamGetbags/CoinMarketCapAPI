@@ -49,7 +49,6 @@ def get_cmc_data(endpoint, params=None):
     
     return res_data
 
-'''
 # CMC ID map 
 map_data = get_cmc_data('/v1/cryptocurrency/map')
 
@@ -87,16 +86,16 @@ listing_data = listing_data.drop('quote', axis = 1)
 pd.DataFrame(listing_data).to_excel(
     'listing_data.xlsx',
     index=False)
-'''
+
 # get categories data
 categories_params = {'id': "1"}
 categories_data = get_cmc_data('/v1/cryptocurrency/categories', 
                         params=categories_params)
-'''
+
 pd.DataFrame(categories_data['data']).to_excel(
     'categories_data.xlsx',
     index=False)
-'''
+    
 # get category data 
 category_params = {'id': categories_data['data'][0]['id']}
 category_data = get_cmc_data('/v1/cryptocurrency/category', 
